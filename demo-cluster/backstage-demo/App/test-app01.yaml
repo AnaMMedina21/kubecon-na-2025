@@ -1,0 +1,18 @@
+apiVersion: example.crossplane.io/v1
+kind: App
+metadata:
+  annotations:
+    terasky.backstage.io/source-info: >-
+      {"pushToGit":true,"gitBranch":"main","gitRepo":"github.com?owner=AnaMMedina21&repo=kubecon-na-2025","gitLayout":"cluster-scoped","basePath":"demo-cluster/backstage-demo/App"}
+    terasky.backstage.io/add-to-catalog: 'true'
+    terasky.backstage.io/owner: group:default/guests
+    terasky.backstage.io/system: backstage-demo
+    terasky.backstage.io/source-file-url: >-
+      https://github.com/AnaMMedina21/kubecon-na-2025/blob/main/demo-cluster/backstage-demo/App/test-app01.yaml
+  name: test-app01
+  namespace: backstage-demo
+spec:
+  image: nginx
+  crossplane:
+    compositionRef:
+      name: app-pythonic
